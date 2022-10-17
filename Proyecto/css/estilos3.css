@@ -56,6 +56,11 @@ body{
 .Login-box input[type=submit]{
     height: 40px;
     font-size: 15px;
+    background-color: rgb(67, 67, 223);
+    border-radius: 2px;
+    display: block;
+    font-size: 18px;
+
 }
 .Login-box input{
     border: none;
@@ -79,8 +84,4 @@ body{
 .form-control{
     width: auto;
     height: auto;   
-}
-.form-control button{
-    height: 40px;
-    font-size: 15px;
 }

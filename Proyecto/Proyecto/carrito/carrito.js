@@ -10,3 +10,16 @@ window.addEventListener("scroll", function(){
     }
 
 })
+
+let carrito =[];
+const btn = document.getElementsByClassName("btn")
+const Informacion = document.getElementsByClassName("Informacion")
+const productos = document.getElementById("Contenedor")
+productos.forEach(product => {
+    
+    btn.addEventListener("click", (e) =>{
+        carrito.push({
+            
+        })
+    })  
+});

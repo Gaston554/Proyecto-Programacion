@@ -9,17 +9,5 @@ window.addEventListener("scroll", function(){
         header.classList.remove("scroll")
     }
 
-})
-
-let carrito =[];
-const btn = document.getElementsByClassName("btn")
-const Informacion = document.getElementsByClassName("Informacion")
-const productos = document.getElementById("Contenedor")
-productos.forEach(product => {
-    
-    btn.addEventListener("click", (e) =>{
-        carrito.push({
-            
-        })
-    })  
-});
+}
+)

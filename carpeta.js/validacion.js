@@ -16,6 +16,7 @@ const validaCampos = ()=> {
     const passValor = pass.value
     const passwordValor = password.value
 
+    //validando campo usuario
     if(!usuarioValor){
         console.log('CAMPO VACIO')
         validaFalla(usuario,"Campo vacio")
@@ -23,6 +24,7 @@ const validaCampos = ()=> {
         validaOk(usuario)
     }
 
+    //validando campo email
     if(!emailValor){
         validaFalla(email,"Campo vacio")
     }else if(!validaEmail(emailValor)){
@@ -31,6 +33,7 @@ const validaCampos = ()=> {
         validaOk(email)
     }
 
+    //validando campo contraseña
     const er = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/          
     if(!passValor) {
              validaFalla(pass, 'Campo vacío')
@@ -41,6 +44,8 @@ const validaCampos = ()=> {
     } else {
              validaOk(pass)
     }
+    
+    //validando campo confirmar contraseña
     if(!passwordValor){
             validaFalla(password, 'Confirme su password')
     } else if(passValor !== passwordValor) {

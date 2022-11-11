@@ -7,123 +7,131 @@ const productos = [
     {
         id: 1,
         nombre: "Ark survival",
-        precio: "900",
-        img: "",
+        precio: 900,
+        img: "./img/ark.jpg",
         cantidad: 1,
 
     },
     {
         id: 2,
         nombre: "Valorant",
-        precio: "524",
-        img: "",
+        precio: 524,
+        img: "./img/valorant.jpg",
         cantidad: 1,
 
     },
     {
         id: 3,
         nombre: "Rocket League",
-        precio: "431",
-        img: "",
+        precio: 430,
+        img: "./img/rocker.jpg",
         cantidad: 1,
 
     },
     {
         id: 4,
-        nombre: "DOOM slayer",
-        precio: "131",
-        img: "",
+        nombre: "DOOM",
+        precio: 131,
+        img: "./img/doom.png",
         cantidad: 1,
 
     },
     {
         id: 5,
         nombre: "Genshi Impact",
-        precio: "242",
-        img: "",
+        precio: 242,
+        img: "./img/genshin.jpg",
         cantidad: 1,
 
     },
     {
         id: 6,
         nombre: "Fifa 22",
-        precio: "500",
-        img: "",
+        precio: 500,
+        img: "./img/fifa.jpg",
         cantidad: 1,
 
     },
     {
         id: 7,
         nombre: "Grand Theft Auto V",
-        precio: "120",
-        img: "",
+        precio: 120,
+        img: "./img/gta.jpg",
         cantidad: 1,
 
     },
     {
         id: 8,
         nombre: "God of War",
-        precio: "100",
-        img: "",
+        precio: 100,
+        img: "./img/god.jpg",
         cantidad: 1,
 
     },
     {
         id: 9,
         nombre: "Crash Bandicoot",
-        precio: "150",
-        img: "",
+        precio: 150,
+        img: "./img/crash.png",
         cantidad: 1,
 
     },
     {
         id: 10,
         nombre: "Fall Guys",
-        precio: "400",
-        img: "",
+        precio: 400,
+        img: "./img/fall.jpg",
         cantidad: 1,
 
     },
     {
         id: 11,
         nombre: "Need for Speed MostWanter",
-        precio: "250",
-        img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhdqwalls.com%2Fneed-for-speed-most-wanted-key-art-5k-wallpaper&psig=AOvVaw2EpGUDjAllMnaHZCfSN-jr&ust=1668210954502000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDLn53opPsCFQAAAAAdAAAAABBB",
+        precio: 250,
+        img: "./img/need.jpg",
         cantidad: 1,
     },
     {
         id: 12,
         nombre: "Need for Speed: Heat",
-        precio: "200",
-        img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwall.alphacoders.com%2Fby_sub_category.php%3Fid%3D318337%26name%3DNeed%2Bfor%2BSpeed%2BHeat%2BFondos%2Bde%2Bpantalla%26lang%3DSpanish&psig=AOvVaw0f6d4WDG_tQU4MXB9udA_u&ust=1668210893554000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKjki__npPsCFQAAAAAdAAAAABAD",
+        precio: 200,
+        img: "./img/car.jpg",
         cantidad: 1,
 
     },
 ];
 
 
+
+//creacion de las cartas en donde estara el precio, el nombre y una imagen el producto.
 let carrito = [];
-productos.forEach(product => {
+productos.forEach(product => { // ejecuta la función indicada una vez por cada elemento del array.
+
     let content = document.createElement("div");
     content.className = "card";
     content.innerHTML = `
     <img src="${product.img}">
-    <h3>${product.nombre}</h3>
+    <h3 class="h3Nombre">${product.nombre}</h3>
     <p class="price">${product.precio}$ </p>
     `
-    shopContent.append(content);
+    shopContent.append(content); // se encarga de agregar contenido al final del ya existente
+   
     let comprar = document.createElement("button")
     comprar.innerText ="comprar";
     comprar.className = "comprar";
+
 
     content.append(comprar);
 
     comprar.addEventListener("click", () =>{
 
-        const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
-
+        //
+        const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);  //El some ejecuta la funcion por cada elemento presente en la array hasta que encuentre uno donde retorna un valor verdadero.
+        
+        //Es un if que hace que si se repite una id dento del carrito, se sume dentro de variable cantidad.
         if(repeat){
-            carrito.map((prod) =>{
+            carrito.map((prod) =>{ // Map crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+                
                 if(prod.id === product.id){
                     prod.cantidad++;
                 }
@@ -182,7 +190,7 @@ const pintarCarrito = () => {
             eliminar.addEventListener("click", eliminarProducto);
         });
     
-        const total = carrito.reduce((acc,el) => acc + el.precio, 0 );
+        const total = carrito.reduce((acc,el) => acc + el.precio, 0 ); //ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor.
     
         const totalBuying = document.createElement("div");
         totalBuying.className = "total-content";

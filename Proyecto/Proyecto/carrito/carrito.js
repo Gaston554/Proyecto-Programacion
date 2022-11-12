@@ -104,7 +104,7 @@ const productos = [
 
 
 //creacion de las cartas en donde estara el precio, el nombre y una imagen el producto.
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 productos.forEach(product => { // ejecuta la función indicada una vez por cada elemento del array.
 
     let content = document.createElement("div");
@@ -128,7 +128,7 @@ productos.forEach(product => { // ejecuta la función indicada una vez por cada 
         //
         const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);  //El some ejecuta la funcion por cada elemento presente en la array hasta que encuentre uno donde retorna un valor verdadero.
         
-        //Es un if que hace que si se repite una id dento del carrito, se sume dentro de variable cantidad.
+        // El repeat construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada
         if(repeat){
             carrito.map((prod) =>{ // Map crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
                 
@@ -142,12 +142,18 @@ productos.forEach(product => { // ejecuta la función indicada una vez por cada 
             img: product.img,
             nombre: product.nombre,
             precio: product.precio,
-            cantidad:product.cantidad,
         });
         }   
         carritoContent();
+        saveLocal();
     });
 });
+
+//El localStorage hace que se guarden los datos que son seleccionados por el usuario.
+const saveLocal = () =>{
+    localStorage.setItem("carrito",JSON.stringify(carrito));
+
+};
 
 
 const pintarCarrito = () => {
@@ -156,11 +162,11 @@ const pintarCarrito = () => {
         const modalheader = document.createElement("div");
         modalheader.className = "modal-header"
         modalheader.innerHTML = `
-        <h1 class="modal-header-title">Carrito.</h1>
+        <h1 class="modal-header-title">"Carrito"</h1>
         `;
         modalContainer.append(modalheader);
         const modalbutton = document.createElement("h1");
-        modalbutton.innerText ="x";
+        modalbutton.innerText ="❌";
         modalbutton.className = "modal-header-button";
     
         modalbutton.addEventListener("click",() =>{
@@ -178,7 +184,6 @@ const pintarCarrito = () => {
             <img src="${product.img}">
             <h3>${product.nombre}</h3>
              <p>${product.precio}$</p>
-             <p>cantidad:${product.cantidad}</p>
             `;
             modalContainer.append(carritoContent);
     
@@ -206,11 +211,20 @@ const pintarCarrito = () => {
         carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
         });
-        
+        carritoContent();
+        saveLocal();
         pintarCarrito();
+
     };
 
     const carritoContent = () =>{
         cantidadCarrito.style.display ="block";
-            cantidadCarrito.innerText = carrito.length;
+
+        const carritoLength = carrito.length;
+
+        localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+
+        cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+
     };
+carritoContent();

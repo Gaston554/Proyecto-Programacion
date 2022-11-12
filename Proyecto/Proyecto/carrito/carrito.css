@@ -109,14 +109,16 @@ header{
     z-index: 9;
     top: 12vh;
     scrollbar-color: none;
+    
 }
 .modal-container::-webkit-scrollbar{
 display: none;
 }
 .modal-header{
+    border-radius: 5px 0 0 0;
     display: flex;
     justify-content: space-around;
-    background-color: black;
+    background-color: rgb(81, 90, 90);
     color: white;
     width: 100%;
 
@@ -140,6 +142,8 @@ display: none;
     width: 120px;
 }
 .total-content{
+    border-radius: 0 5px 0 0;
+    background-color: rgb(81, 90, 90);
     font-size: 25px;
     padding: 20px;
     text-align: center;
@@ -149,12 +153,14 @@ display: none;
     cursor: pointer;
 }
 .cantidad-Carrito{
+    padding: 3px;
     background-color: red;
-    border-radius: 50%;
+    border-radius: 25px;
     font-size: 12px;
     position: absolute;
     display: none;
-    right: 380px;
+    right: 600px;
+    margin: 2px;
 }
 .card{
     text-align: center;
@@ -164,20 +170,29 @@ display: none;
     margin: 0;
 }
 .comprar{
+    font-family: 'Montserrat';
     text-align: center;
     margin: 0;
     color:black;
-    display: flex;
-    justify-content: center;
+    justify-content: center ! important;
     width: 120px;
     border-radius: 10px;
     font-size: 17px;
     cursor: pointer;
-    align-items: center;
 }
 .price{
     text-align: center;
 }
 .h3Nombre{
     text-align: center;
+}
+.Modal-container{
+    background-color: ;
+}
+.modal-Container{
+    border:solid rgb(236, 240, 241);
+    box-sizing: content-box;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
 }
